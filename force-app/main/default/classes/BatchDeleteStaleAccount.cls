@@ -4,7 +4,7 @@ public class BatchDeleteStaleAccount implements Database.Batchable<sObject> {
         return Database.getQueryLocator('SELECT Id, Name, (SELECT Id, Name, CloseDate FROM Opportunities) FROM Account');
         }
     public void execute(Database.BatchableContext bc, List<Account> records){
-        // process each batch of records
+        // process each batch of record
         List<Account> accDelete = new List<Account>();
         for(Account acc : records)
         {
